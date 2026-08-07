@@ -43,6 +43,17 @@ function App() {
     setTasks(newTasks);
   }
 
+  //Defining a function to add a new task when the button is clicked
+  function handleAddTask(title, description) {
+    const newTask = {
+      id: tasks.length + 1,
+      title,
+      description,
+      completed: false
+    };
+    setTasks([...tasks, newTask]);
+  }
+
 
   return (
     <div className="w-full h-screen flex justify-center bg-gray-500 text-white">
@@ -53,7 +64,7 @@ function App() {
         </h1>
 
         {/*Render the AddTask component*/}
-        <AddTask />
+        <AddTask onAddTask={handleAddTask} />
 
         {/*Render the Tasks component*/}
         <Tasks tasks={tasks} onTaskClick={handleTaskClick} onDeleteTask={handleDeleteTask} />

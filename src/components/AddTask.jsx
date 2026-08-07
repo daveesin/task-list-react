@@ -24,7 +24,11 @@ function AddTask({ onAddTask }) {
             />
             <button 
                 className="bg-slate-500 text-white py-2 px-4 rounded-md hover:bg-slate-600"
-                onClick={() => onAddTask(title, description)}
+                onClick={() => {
+                    onAddTask(title, description);
+                    setTitle("");
+                    setDescription("");
+                }}
             >
                 Add Task
             </button>

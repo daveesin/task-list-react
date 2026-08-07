@@ -25,6 +25,12 @@ function AddTask({ onAddTask }) {
             <button 
                 className="bg-slate-500 text-white py-2 px-4 rounded-md hover:bg-slate-600"
                 onClick={() => {
+                    //Verify if the title and description are not empty before adding the task
+                    if(title.trim() === "" || description.trim() === "") {
+                        return alert("Please enter a title and description for the task.");
+                    }
+
+                    //Add the new task and clean the input fields
                     onAddTask(title, description);
                     setTitle("");
                     setDescription("");

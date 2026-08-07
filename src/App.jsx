@@ -1,5 +1,7 @@
 import Tasks from "./components/Tasks";
+import AddTask from "./components/AddTask";
 import { useState } from "react";
+import { v4 } from 'uuid';
 
 function App() {
 
@@ -42,14 +44,28 @@ function App() {
     setTasks(newTasks);
   }
 
+  //Defining a function to add a new task when the button is clicked
+  function handleAddTask(title, description) {
+    const newTask = {
+      id: v4(),
+      title,
+      description,
+      completed: false
+    };
+    setTasks([...tasks, newTask]);
+  }
+
 
   return (
     <div className="w-full h-screen flex justify-center bg-gray-500 text-white">
-      <div className="w-1/2 h-1/2 flex flex-col items-center">
+      <div className="w-1/2 h-1/2 flex flex-col items-center space-y-4">
         {/*Page Title*/}
         <h1 className="text-5xl text-yellow-500 font-bold p-10">
           Task Manager
         </h1>
+
+        {/*Render the AddTask component*/}
+        <AddTask onAddTask={handleAddTask} />
 
         {/*Render the Tasks component*/}
         <Tasks tasks={tasks} onTaskClick={handleTaskClick} onDeleteTask={handleDeleteTask} />

@@ -1,4 +1,4 @@
-import { ChevronRightIcon } from 'lucide-react';
+import { ChevronRightIcon, CheckIcon } from 'lucide-react';
 
 function Tasks(props) {
     return(
@@ -6,8 +6,8 @@ function Tasks(props) {
 
             {props.tasks.map((task) => (
                 <li key={task.id} className="flex gap-2">
-                    <button className="bg-slate-400 w-full h-10 text-white rounded-md border-2 border-black hover:bg-slate-500">
-                        {task.title}
+                    <button onClick={() => props.onTaskClick(task.id)} className={`${task.completed && 'line-through'} bg-slate-400 w-full h-10 text-white rounded-md border-2 border-black hover:bg-slate-500`}>
+                        {task.title} {task.completed && <CheckIcon className="inline-block" />}
                     </button>
                     <button className="bg-slate-400 w-10 h-10 text-white rounded-md border-2 border-black hover:bg-slate-500">
                         <ChevronRightIcon />

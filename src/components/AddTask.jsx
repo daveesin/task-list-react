@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Input from "./Input.jsx"
 
 function AddTask({ onAddTask }) {
 
@@ -8,17 +9,15 @@ function AddTask({ onAddTask }) {
     return(
         <div className="space-y-4 p-6 bg-yellow-500 rounded-md shadow border-black border-2 w-full flex flex-col">
 
-            <input 
+            <Input
                 type="text" 
                 placeholder="Enter a new task..." 
-                className="border border-slate-500 outline-slate-400 px-4 py-2 rounded-md"
                 value={title}
                 onChange={(event) => setTitle(event.target.value)}
             />
-            <input 
+            <Input
                 type="text" 
                 placeholder="Enter a new description..." 
-                className="border border-slate-500 outline-slate-400 px-4 py-2 rounded-md"
                 value={description}
                 onChange={(event) => setDescription(event.target.value)}
             />

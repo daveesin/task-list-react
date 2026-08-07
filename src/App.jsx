@@ -1,4 +1,5 @@
 import Tasks from "./components/Tasks";
+import AddTask from "./components/AddTask";
 import { useState } from "react";
 
 function App() {
@@ -53,6 +54,9 @@ function App() {
 
         {/*Render the Tasks component*/}
         <Tasks tasks={tasks} onTaskClick={handleTaskClick} onDeleteTask={handleDeleteTask} />
+
+        {/*Render the AddTask component*/}
+        <AddTask />
       
       </div>
     </div>

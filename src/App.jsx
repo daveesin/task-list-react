@@ -52,11 +52,11 @@ function App() {
           Task Manager
         </h1>
 
-        {/*Render the Tasks component*/}
-        <Tasks tasks={tasks} onTaskClick={handleTaskClick} onDeleteTask={handleDeleteTask} />
-
         {/*Render the AddTask component*/}
         <AddTask />
+
+        {/*Render the Tasks component*/}
+        <Tasks tasks={tasks} onTaskClick={handleTaskClick} onDeleteTask={handleDeleteTask} />
       
       </div>
     </div>

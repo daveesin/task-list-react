@@ -36,6 +36,12 @@ function App() {
     setTasks(newTasks);
   };
 
+  //Defining a function to delete a task when a button is clicked
+  function handleDeleteTask(taskId) {
+    const newTasks = tasks.filter((task) => task.id !== taskId);
+    setTasks(newTasks);
+  }
+
 
   return (
     <div className="w-full h-screen flex justify-center bg-gray-500 text-white">
@@ -46,7 +52,7 @@ function App() {
         </h1>
 
         {/*Render the Tasks component*/}
-        <Tasks tasks={tasks} onTaskClick={handleTaskClick} />
+        <Tasks tasks={tasks} onTaskClick={handleTaskClick} onDeleteTask={handleDeleteTask} />
       
       </div>
     </div>

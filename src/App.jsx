@@ -1,31 +1,19 @@
 import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 } from 'uuid';
 
 function App() {
 
-  {/**Creating the tasks using a state here to use as a property of the Tasks component */}
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      title: "Study React",
-      description: "Study React and learn basic concepts",
-      completed: false
-    },
-    {
-      id: 2,
-      title: "Make the lunch",
-      description: "Prepare and eat a healthy lunch",
-      completed: false
-    },
-    {
-      id: 3,
-      title: "Go to the gym",
-      description: "Go to the gym and do a workout",
-      completed: false
-    }
-  ]);
+  {/**Importing tasks from the localStorage as states to change the view of the user */}
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem("tasks")) || []
+  );
+
+  //Update the local storage everytime I update something on my tasklist:
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   //Defining a function to mark a task as completed when the button is clicked
   function handleTaskClick(taskId) {

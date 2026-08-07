@@ -6,7 +6,10 @@ function Tasks(props) {
 
     //Function to navigate to the task details page with query parameters
     function handleSeeDetailsClick(task) {
-        navigate(`/task?title=${task.title}&description=${task.description}`)
+        const query = new URLSearchParams();
+        query.set("title", task.title);
+        query.set("description", task.description);
+        navigate(`/task?${query.toString()}`)
     }
 
     return(

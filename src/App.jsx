@@ -1,6 +1,7 @@
 import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
 import { useState } from "react";
+import { v4 } from 'uuid';
 
 function App() {
 
@@ -46,7 +47,7 @@ function App() {
   //Defining a function to add a new task when the button is clicked
   function handleAddTask(title, description) {
     const newTask = {
-      id: tasks.length + 1,
+      id: v4(),
       title,
       description,
       completed: false

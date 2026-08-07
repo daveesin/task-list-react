@@ -25,6 +25,18 @@ function App() {
     }
   ]);
 
+  //Defining a function to mark a task as completed when the button is clicked
+  function handleTaskClick(taskId) {
+    const newTasks = tasks.map((task) => {
+      if (task.id === taskId) {
+        return { ...task, completed: !task.completed };
+      }
+      return task;
+    });
+    setTasks(newTasks);
+  };
+
+
   return (
     <div className="w-full h-screen flex justify-center bg-gray-500 text-white">
       <div className="w-1/2 h-1/2 flex flex-col items-center">
@@ -34,7 +46,7 @@ function App() {
         </h1>
 
         {/*Render the Tasks component*/}
-        <Tasks tasks={tasks} />
+        <Tasks tasks={tasks} onTaskClick={handleTaskClick} />
       
       </div>
     </div>
